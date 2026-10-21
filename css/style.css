@@ -1,0 +1,1618 @@
+/* ==========================================================================
+   STYLE UNDANGAN DIGITAL PENTAHBISAN & PERESMIAN GEDUNG GKST KARMEL WINOWANGA
+   Palet: Navy #0B1F5C, Biru Kop #1B4FB0, Emas #C9A24B / #B8873A, Krem #F6EFE2
+   ========================================================================== */
+
+:root {
+  --navy-primary: #0B1F5C;
+  --navy-deep: #06133B;
+  --blue-kop: #1B4FB0;
+  --blue-light: #EEF4FD;
+  --gold-primary: #C9A24B;
+  --gold-dark: #B8873A;
+  --gold-light: #EAD8B0;
+  --gold-shimmer: linear-gradient(135deg, #D4AF37 0%, #FFDF73 50%, #B8873A 100%);
+  --cream-bg: #F6EFE2;
+  --cream-light: #FCF9F3;
+  --cream-border: #E8DDCA;
+  --white: #FFFFFF;
+  --text-dark: #0B1F5C;
+  --text-body: #2B3A67;
+  --text-muted: #5E6C8F;
+  --shadow-soft: 0 10px 30px rgba(11, 31, 92, 0.08);
+  --shadow-card: 0 12px 35px rgba(11, 31, 92, 0.12);
+  --shadow-elevated: 0 18px 45px rgba(11, 31, 92, 0.18);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 9999px;
+  --font-heading: 'Noto Sans', 'Open Sans', system-ui, -apple-system, sans-serif;
+  --font-script: 'Great Vibes', 'Parisienne', cursive;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --max-content-width: 480px;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.35s ease;
+  --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset & Box Sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: #08122D; /* Latar desktop gelap khidmat */
+  color: var(--text-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Scroll Lock saat Cover Tertutup */
+body.scroll-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+}
+
+/* ==========================================================================
+   DESKTOP BACKGROUND AMBIANCE
+   Latar belakang dekoratif di sisi kanan & kiri layar desktop
+   ========================================================================== */
+.desktop-backdrop {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .desktop-backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .desktop-backdrop__bg {
+    position: absolute;
+    inset: -40px;
+    background-image: url('../assets/img/bg-cover.webp'), url('../assets/img/bg-cover.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(28px) brightness(0.35) saturate(1.2);
+    transform: scale(1.08);
+  }
+
+  .desktop-backdrop__overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(11, 31, 92, 0.6) 0%, rgba(6, 19, 59, 0.95) 100%);
+  }
+
+  .desktop-backdrop__ornament {
+    position: absolute;
+    opacity: 0.15;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .desktop-backdrop__ornament--left {
+    top: 5%;
+    left: 4%;
+    width: 280px;
+    height: 400px;
+    background-image: url('../assets/img/bunga-kering-emas.webp'), url('../assets/img/bunga-kering-emas.png');
+    transform: rotate(-10deg);
+  }
+
+  .desktop-backdrop__ornament--right {
+    bottom: 5%;
+    right: 4%;
+    width: 280px;
+    height: 400px;
+    background-image: url('../assets/img/bunga-kering-emas.webp'), url('../assets/img/bunga-kering-emas.png');
+    transform: scaleX(-1) rotate(10deg);
+  }
+}
+
+/* ==========================================================================
+   MAIN APP CONTAINER (Mobile Column 360-480px)
+   ========================================================================== */
+.app-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  background-color: var(--cream-light);
+  min-height: 100vh;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================================================================
+   1. LOADING SCREEN
+   ========================================================================== */
+.loading-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: linear-gradient(135deg, #06133B 0%, #0B1F5C 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  display: none !important;
+}
+
+.loading-spinner-wrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.loading-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px solid rgba(201, 162, 75, 0.2);
+  border-top-color: var(--gold-primary);
+  border-radius: 50%;
+  animation: spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+.loading-logo {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(201, 162, 75, 0.4);
+}
+
+.loading-text {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.loading-subtext {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.35rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   FLOATING AUDIO PLAYER
+   ========================================================================== */
+.audio-player-btn {
+  position: fixed;
+  bottom: 24px;
+  right: calc(50% - (var(--max-content-width) / 2) + 20px);
+  z-index: 900;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy-deep), var(--navy-primary));
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 8px 25px rgba(11, 31, 92, 0.4);
+  color: var(--gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  opacity: 0;
+  transform: scale(0.6);
+  pointer-events: none;
+}
+
+@media (max-width: 480px) {
+  .audio-player-btn {
+    right: 20px;
+  }
+}
+
+.audio-player-btn.active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.audio-player-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 30px rgba(201, 162, 75, 0.5);
+}
+
+.audio-icon-disc {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audio-player-btn.is-playing .audio-icon-disc {
+  animation: spin 4s linear infinite;
+}
+
+/* ==========================================================================
+   2. COVER SECTION (Fullscreen)
+   ========================================================================== */
+.section-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--navy-deep);
+  transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1), opacity 0.8s ease;
+  overflow: hidden;
+}
+
+.section-cover.opened {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.cover-bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cover-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: brightness(0.92) contrast(1.04);
+}
+
+.cover-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(6, 19, 59, 0.55) 0%,
+    rgba(11, 31, 92, 0.35) 40%,
+    rgba(246, 239, 226, 0.85) 85%,
+    rgba(246, 239, 226, 0.98) 100%
+  );
+}
+
+.cover-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--max-content-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+  overflow-y: auto;
+}
+
+.cover-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(201, 162, 75, 0.45);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 1.4rem 1.8rem;
+  box-shadow: 0 16px 40px rgba(11, 31, 92, 0.22);
+  margin-top: auto;
+  margin-bottom: auto;
+  position: relative;
+}
+
+/* Sudut Ornamen Garis Emas */
+.corner-ornament {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-image: url('../assets/img/ornamen-garis-emas.webp'), url('../assets/img/ornamen-garis-emas.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.corner-top-left {
+  top: 8px;
+  left: 8px;
+  transform: rotate(0deg);
+}
+
+.corner-top-right {
+  top: 8px;
+  right: 8px;
+  transform: scaleX(-1);
+}
+
+.corner-bottom-left {
+  bottom: 8px;
+  left: 8px;
+  transform: scaleY(-1);
+}
+
+.corner-bottom-right {
+  bottom: 8px;
+  right: 8px;
+  transform: scale(-1);
+}
+
+.cover-logo-wrap {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  padding: 5px;
+  background: var(--white);
+  box-shadow: 0 6px 18px rgba(11, 31, 92, 0.15);
+  border: 2px solid var(--gold-primary);
+}
+
+.cover-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.cover-label-undangan {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 5px;
+  color: var(--gold-dark);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.cover-label-undangan::before,
+.cover-label-undangan::after {
+  content: "";
+  height: 1px;
+  width: 28px;
+  background: var(--gold-primary);
+}
+
+.cover-main-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: var(--navy-primary);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.cover-event-date {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--blue-kop);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.cover-divider {
+  height: 2px;
+  width: 60px;
+  background: var(--gold-primary);
+  margin: 0 auto 1.25rem;
+  border-radius: 2px;
+}
+
+.cover-recipient-box {
+  background: var(--cream-bg);
+  border: 1px solid var(--cream-border);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.recipient-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 0.4rem;
+}
+
+.recipient-name {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  line-height: 1.3;
+  margin-bottom: 0.4rem;
+  word-break: break-word;
+}
+
+.recipient-apology {
+  font-size: 0.72rem;
+  color: #7A869A;
+  line-height: 1.4;
+}
+
+.btn-open-invitation {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, #153B98 100%);
+  color: var(--white);
+  border: 1px solid var(--gold-primary);
+  padding: 0.95rem 2.2rem;
+  font-size: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(11, 31, 92, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+  width: 100%;
+  max-width: 290px;
+  margin: 0 auto;
+}
+
+.btn-open-invitation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(201, 162, 75, 0.45);
+  background: linear-gradient(135deg, #153B98 0%, var(--navy-primary) 100%);
+}
+
+.btn-open-invitation:active {
+  transform: translateY(1px);
+}
+
+.btn-open-invitation svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   COMMON SECTION STYLES
+   ========================================================================== */
+section {
+  padding: 3rem 1.25rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--cream-border);
+  box-shadow: var(--shadow-card);
+  padding: 2.2rem 1.4rem;
+  position: relative;
+}
+
+.section-badge {
+  display: inline-block;
+  background: var(--blue-light);
+  color: var(--blue-kop);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(27, 79, 176, 0.2);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.section-script-title {
+  font-family: var(--font-script);
+  font-size: 2.6rem;
+  font-weight: normal;
+  color: var(--gold-dark);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.section-divider-ornament {
+  width: 100%;
+  max-width: 180px;
+  height: 22px;
+  margin: 0.75rem auto 1.5rem;
+  background-image: url('../assets/img/ornamen-garis-emas.webp'), url('../assets/img/ornamen-garis-emas.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.85;
+}
+
+/* ==========================================================================
+   3. AYAT ALKITAB SECTION
+   ========================================================================== */
+.section-verse {
+  background-color: var(--cream-bg);
+  text-align: center;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+.verse-emblem-wrap {
+  width: 130px;
+  height: 130px;
+  margin: 0 auto 1.25rem;
+}
+
+.verse-emblem-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 14px rgba(11, 31, 92, 0.12));
+}
+
+.verse-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(201, 162, 75, 0.35);
+  box-shadow: var(--shadow-card);
+  padding: 2.2rem 1.5rem;
+  position: relative;
+}
+
+.verse-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--gold-primary);
+  opacity: 0.45;
+  margin-bottom: -0.8rem;
+}
+
+.verse-text {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--navy-primary);
+  font-style: italic;
+  margin-bottom: 1.25rem;
+}
+
+.verse-reference {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.church-photo-card {
+  margin-top: 2rem;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--cream-border);
+  box-shadow: var(--shadow-card);
+}
+
+.church-photo-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+.church-photo-caption {
+  padding: 1rem 1.25rem;
+  text-align: center;
+  background: linear-gradient(to right, #FAF6EE, var(--white), #FAF6EE);
+}
+
+.church-photo-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.church-photo-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================================
+   4. SURAT UNDANGAN RESMI (Paper Look)
+   ========================================================================== */
+.section-letter {
+  background-color: var(--cream-light);
+}
+
+.letter-paper {
+  background: #FEFCF8;
+  border-radius: var(--radius-md);
+  box-shadow: 0 14px 40px rgba(11, 31, 92, 0.12);
+  border: 1px solid #E4D9C3;
+  padding: 2.2rem 1.35rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Watermark Salib / Logo di Latar Belakang Surat */
+.letter-paper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  height: 260px;
+  background-image: url('../assets/img/logo-gkst.webp'), url('../assets/img/logo-gkst.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0.04;
+  pointer-events: none;
+}
+
+.letter-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 3px double var(--blue-kop);
+  margin-bottom: 1.5rem;
+}
+
+.letter-logo {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.letter-header-text {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.letter-church-title {
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: var(--blue-kop);
+  line-height: 1.25;
+}
+
+.letter-church-sub {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  letter-spacing: 0.8px;
+  margin-top: 2px;
+}
+
+.letter-church-jemaat {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: var(--navy-primary);
+  letter-spacing: 0.5px;
+  margin-top: 3px;
+}
+
+.letter-salutation {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  margin-bottom: 0.75rem;
+}
+
+.letter-paragraph {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--text-body);
+  text-align: justify;
+  margin-bottom: 1.25rem;
+}
+
+/* Event Detail Card di Dalam Surat */
+.event-info-table-card {
+  background: var(--cream-bg);
+  border: 1px solid var(--cream-border);
+  border-left: 4px solid var(--gold-primary);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.1rem;
+  margin: 1.25rem 0;
+}
+
+.event-info-row {
+  display: flex;
+  padding: 0.45rem 0;
+  border-bottom: 1px dashed rgba(201, 162, 75, 0.35);
+  font-size: 0.9rem;
+}
+
+.event-info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  width: 105px;
+  flex-shrink: 0;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.info-separator {
+  padding: 0 0.4rem;
+  font-weight: 700;
+  color: var(--gold-dark);
+}
+
+.info-val {
+  color: var(--text-dark);
+  font-weight: 600;
+  flex-grow: 1;
+}
+
+.info-val strong {
+  color: var(--blue-kop);
+}
+
+/* Bagian Tombol Lihat Surat Asli */
+.btn-view-original {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background: var(--blue-light);
+  color: var(--blue-kop);
+  border: 1px dashed var(--blue-kop);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 1.25rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-view-original:hover {
+  background: #E0ECFB;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   5. COUNTDOWN & SAVE TO CALENDAR SECTION
+   ========================================================================== */
+.section-countdown {
+  background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy-primary) 100%);
+  color: var(--white);
+  text-align: center;
+}
+
+.section-countdown .section-title {
+  color: var(--white);
+}
+
+.section-countdown .section-badge {
+  background: rgba(201, 162, 75, 0.2);
+  color: var(--gold-light);
+  border-color: rgba(201, 162, 75, 0.4);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.6rem;
+  margin: 1.8rem 0 2rem;
+}
+
+.countdown-box {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(201, 162, 75, 0.4);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 0.25rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.countdown-number {
+  font-family: var(--font-heading);
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--gold-light);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.countdown-label {
+  font-size: 0.72rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.calendar-action-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.btn-calendar {
+  background: var(--gold-shimmer);
+  color: var(--navy-deep);
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.4rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 8px 20px rgba(201, 162, 75, 0.35);
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-calendar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(201, 162, 75, 0.5);
+}
+
+.btn-calendar-secondary {
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid rgba(201, 162, 75, 0.5);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.7rem 1.2rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-calendar-secondary:hover {
+  background: rgba(201, 162, 75, 0.15);
+  border-color: var(--gold-primary);
+}
+
+/* ==========================================================================
+   6. TANDA TANGAN SECTION
+   ========================================================================== */
+.section-signatories {
+  background-color: var(--cream-bg);
+  text-align: center;
+}
+
+.signatories-letter-date {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.signatories-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signatory-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--cream-border);
+  box-shadow: var(--shadow-soft);
+  padding: 1.4rem 1rem 1.2rem;
+  position: relative;
+}
+
+.signatory-role {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--blue-kop);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.2rem;
+}
+
+.signatory-pos {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.signatory-img-wrap {
+  width: 100%;
+  max-width: 280px;
+  height: 120px;
+  margin: 0.35rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signatory-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Multiply blend mode membuat latar belakang kertas putih ttd menyatu mulus dengan kartu */
+  mix-blend-mode: multiply;
+}
+
+.signatory-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  border-bottom: 1px solid var(--navy-primary);
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-top: 0.2rem;
+}
+
+.signatory-card--klasis {
+  border: 1.5px solid rgba(201, 162, 75, 0.45);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #FAF6EE 100%);
+}
+
+/* ==========================================================================
+   7. SUSUNAN ACARA (Rundown) SECTION
+   ========================================================================== */
+.section-rundown {
+  background-color: var(--cream-light);
+  text-align: center;
+}
+
+.rundown-timeline {
+  position: relative;
+  max-width: 420px;
+  margin: 2rem auto 0;
+  text-align: left;
+  padding-left: 1.5rem;
+}
+
+/* Garis Timeline Emas Vertikal */
+.rundown-timeline::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  bottom: 20px;
+  left: 36px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--gold-primary), var(--blue-kop));
+  border-radius: 2px;
+}
+
+.rundown-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.rundown-item.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rundown-number-badge {
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--gold-primary);
+  box-shadow: 0 4px 12px rgba(11, 31, 92, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--navy-primary);
+}
+
+.rundown-item:hover .rundown-number-badge {
+  background: var(--navy-primary);
+  color: var(--gold-light);
+  border-color: var(--gold-primary);
+}
+
+.rundown-item-card {
+  background: var(--white);
+  border: 1px solid var(--cream-border);
+  border-radius: var(--radius-md);
+  padding: 0.85rem 1.15rem;
+  box-shadow: var(--shadow-soft);
+  flex-grow: 1;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.rundown-item-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-card);
+}
+
+.rundown-item-title {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  line-height: 1.35;
+  margin-bottom: 0;
+}
+
+.rundown-item-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+/* ==========================================================================
+   8. LOKASI SECTION (Google Maps)
+   ========================================================================== */
+.section-location {
+  background-color: var(--cream-bg);
+  text-align: center;
+}
+
+.location-address-box {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--cream-border);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  display: flex;
+  gap: 0.85rem;
+}
+
+.location-icon-pin {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  background: var(--blue-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--blue-kop);
+  font-size: 1.2rem;
+}
+
+.location-name {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 0.3rem;
+}
+
+.location-address {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.maps-embed-wrap {
+  width: 100%;
+  height: 280px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--cream-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 1.25rem;
+}
+
+.maps-embed-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.btn-open-maps {
+  background: linear-gradient(135deg, var(--blue-kop) 0%, var(--navy-primary) 100%);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.8rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 20px rgba(27, 79, 176, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-open-maps:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(27, 79, 176, 0.45);
+}
+
+/* ==========================================================================
+   9. KONFIRMASI KEHADIRAN (RSVP & Buku Tamu)
+   ========================================================================== */
+.section-rsvp {
+  background-color: var(--cream-light);
+}
+
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: left;
+}
+
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--cream-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--white);
+  color: var(--text-dark);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--blue-kop);
+  box-shadow: 0 0 0 3px rgba(27, 79, 176, 0.15);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Radio Group Konfirmasi */
+.rsvp-attendance-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+
+.attendance-radio-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--white);
+  border: 1px solid var(--cream-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--navy-primary);
+  transition: all var(--transition-fast);
+}
+
+.attendance-radio-card:hover {
+  background: var(--blue-light);
+}
+
+.attendance-radio-card input[type="radio"] {
+  accent-color: var(--blue-kop);
+  width: 18px;
+  height: 18px;
+}
+
+.attendance-radio-card:has(input:checked) {
+  border-color: var(--blue-kop);
+  background: var(--blue-light);
+  color: var(--blue-kop);
+}
+
+.btn-submit-rsvp {
+  background: linear-gradient(135deg, var(--navy-primary) 0%, var(--blue-kop) 100%);
+  color: var(--white);
+  border: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.9rem 1.8rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(11, 31, 92, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  margin-top: 0.5rem;
+}
+
+.btn-submit-rsvp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(11, 31, 92, 0.45);
+}
+
+/* Daftar Ucapan & Doa */
+.greetings-feed-wrap {
+  margin-top: 2.2rem;
+  border-top: 1px solid var(--cream-border);
+  padding-top: 1.5rem;
+}
+
+.greetings-feed-title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+  margin-bottom: 1rem;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.greetings-count-badge {
+  font-size: 0.75rem;
+  background: var(--blue-light);
+  color: var(--blue-kop);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+}
+
+.greetings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  max-height: 380px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.greeting-card {
+  background: var(--cream-bg);
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.1rem;
+  border-left: 3px solid var(--gold-primary);
+  text-align: left;
+}
+
+.greeting-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.greeting-author {
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.greeting-status-badge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: var(--radius-pill);
+}
+
+.greeting-status-badge.hadir {
+  background: #E6F8EE;
+  color: #128045;
+}
+
+.greeting-status-badge.tidak {
+  background: #FEECEB;
+  color: #D32F2F;
+}
+
+.greeting-message {
+  font-size: 0.85rem;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin-bottom: 0.3rem;
+}
+
+.greeting-date {
+  font-size: 0.7rem;
+  color: #8C99AF;
+}
+
+/* ==========================================================================
+   10. PENUTUP SECTION
+   ========================================================================== */
+.section-closing {
+  background: linear-gradient(180deg, var(--cream-bg) 0%, #FAF5EC 100%);
+  text-align: center;
+  padding-bottom: 5rem;
+  position: relative;
+}
+
+.closing-blessing {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--navy-primary);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.5px;
+}
+
+.closing-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 300px;
+  margin: 0 auto 2.5rem;
+}
+
+.btn-share-wa {
+  background: #25D366;
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.35);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn-share-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.45);
+}
+
+.btn-scroll-top {
+  background: var(--white);
+  color: var(--navy-primary);
+  border: 1px solid var(--cream-border);
+  font-family: var(--font-heading);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-soft);
+  transition: all var(--transition-fast);
+}
+
+.btn-scroll-top:hover {
+  background: var(--blue-light);
+  border-color: var(--blue-kop);
+  color: var(--blue-kop);
+  transform: translateY(-2px);
+}
+
+/* Sudut Bunga Kering Emas di Bawah Section */
+.closing-flower-ornament {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 180px;
+  height: 180px;
+  background-image: url('../assets/img/bunga-kering-emas.webp'), url('../assets/img/bunga-kering-emas.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.site-footer {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border-top: 1px solid var(--cream-border);
+  padding: 1.5rem 1rem 2rem;
+  text-align: center;
+  background: var(--white);
+}
+
+/* ==========================================================================
+   MODAL LIHAT SURAT CETAK ASLI
+   ========================================================================== */
+.modal-original-letter {
+  position: fixed;
+  inset: 0;
+  z-index: 9990;
+  background: rgba(6, 19, 59, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-original-letter.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: var(--shadow-elevated);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--cream-border);
+}
+
+.modal-title {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy-primary);
+}
+
+.modal-btn-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--text-muted);
+  padding: 0.2rem 0.5rem;
+}
+
+.modal-body {
+  padding: 1rem;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.modal-letter-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   ANIMASI SCROLL & TRANSISI (Intersection Observer)
+   ========================================================================== */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prefers Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .rundown-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
