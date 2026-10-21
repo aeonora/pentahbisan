@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>Undangan Pentahbisan &amp; Peresmian Gedung GKST Jemaat Karmel Winowanga</title>
+  <meta name="title" content="Undangan Pentahbisan &amp; Peresmian Gedung GKST Jemaat Karmel Winowanga">
+  <meta name="description" content="Kamis, 29 Oktober 2026 | Pukul 10.00 WITA | Tempat: Gedung Gereja Kristen Sulawesi Tengah Jemaat Karmel Winowanga, Klasis Napu.">
+  <meta name="theme-color" content="#0B1F5C">
+
+  <!-- Open Graph / Facebook / WhatsApp Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gkst-karmel-winowanga.vercel.app/">
+  <meta property="og:title" content="Undangan Pentahbisan &amp; Peresmian Gedung GKST Jemaat Karmel Winowanga">
+  <meta property="og:description" content="Mensyukuri kasih dan anugerah Tuhan Yesus Kristus. Kamis, 29 Oktober 2026, Pukul 10.00 WITA di Gedung Gereja Kristen Sulawesi Tengah Jemaat Karmel Winowanga.">
+  <meta property="og:image" content="assets/img/gereja.webp">
+
+  <!-- Twitter Meta -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Undangan Pentahbisan &amp; Peresmian Gedung GKST Jemaat Karmel Winowanga">
+  <meta property="twitter:description" content="Kamis, 29 Oktober 2026 | Pukul 10.00 WITA | Tempat: Gedung Gereja Kristen Sulawesi Tengah Jemaat Karmel Winowanga.">
+  <meta property="twitter:image" content="assets/img/gereja.webp">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/img/logo-gkst.png">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Noto+Sans:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" href="assets/img/bg-cover.webp" fetchpriority="high">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="scroll-locked">
+
+  <!-- Latar Belakang Dekoratif Desktop -->
+  <div class="desktop-backdrop" aria-hidden="true">
+    <div class="desktop-backdrop__bg"></div>
+    <div class="desktop-backdrop__overlay"></div>
+    <div class="desktop-backdrop__ornament desktop-backdrop__ornament--left"></div>
+    <div class="desktop-backdrop__ornament desktop-backdrop__ornament--right"></div>
+  </div>
+
+  <!-- 1. LOADING SCREEN -->
+  <div id="loadingScreen" class="loading-screen" aria-label="Memuat undangan...">
+    <div class="loading-spinner-wrap">
+      <div class="loading-ring"></div>
+      <img src="assets/img/logo-gkst.png" alt="Logo GKST" class="loading-logo" width="54" height="54">
+    </div>
+    <div class="loading-text">GKST KARMEL WINOWANGA</div>
+    <div class="loading-subtext">Pentahbisan &amp; Peresmian Gedung Gereja</div>
+  </div>
+
+  <!-- FLOATING AUDIO CONTROL -->
+  <button id="audioToggleBtn" class="audio-player-btn" aria-label="Putar atau jeda musik latar" title="Musik Latar">
+    <span class="audio-icon-disc" id="audioIcon">🎵</span>
+  </button>
+  <audio id="bgAudio" loop preload="auto">
+    <source src="assets/audio/instrumental.mp3" type="audio/mp3">
+    <source src="assets/audio/instrumental.wav" type="audio/wav">
+  </audio>
+
+  <!-- APP CONTAINER (Mobile column 360-480px) -->
+  <div class="app-container">
+
+    <!-- 2. COVER FULLSCREEN SECTION -->
+    <header id="coverSection" class="section-cover" role="banner">
+      <div class="cover-bg-wrap">
+        <picture>
+          <source srcset="assets/img/bg-cover.webp" type="image/webp">
+          <img src="assets/img/bg-cover.jpg" alt="Ilustrasi Salib dan Bunga Putih" class="cover-bg-img" fetchpriority="high">
+        </picture>
+        <div class="cover-overlay"></div>
+      </div>
+
+      <div class="cover-content">
+        <!-- Kartu Utama Cover -->
+        <div class="cover-card">
+          <!-- Ornamen Emas Sudut -->
+          <div class="corner-ornament corner-top-left" aria-hidden="true"></div>
+          <div class="corner-ornament corner-top-right" aria-hidden="true"></div>
+          <div class="corner-ornament corner-bottom-left" aria-hidden="true"></div>
+          <div class="corner-ornament corner-bottom-right" aria-hidden="true"></div>
+
+          <!-- Logo GKST -->
+          <div class="cover-logo-wrap">
+            <picture>
+              <source srcset="assets/img/logo-gkst.webp" type="image/webp">
+              <img src="assets/img/logo-gkst.png" alt="Logo GKST" class="cover-logo" width="72" height="72">
+            </picture>
+          </div>
+
+          <div class="cover-label-undangan">UNDANGAN</div>
+          <h1 class="cover-main-title">PENTAHBISAN DAN PERESMIAN GEDUNG GEREJA KRISTEN SULAWESI TENGAH JEMAAT KARMEL WINOWANGA</h1>
+          <div class="cover-event-date">(KAMIS, 29 OKTOBER 2026)</div>
+          
+          <div class="cover-divider" aria-hidden="true"></div>
+
+          <!-- Kotak Nama Penerima Undangan -->
+          <div class="cover-recipient-box">
+            <div class="recipient-label">Kepada Yth. Bapak/Ibu/Saudara(i):</div>
+            <div id="recipientName" class="recipient-name">Bapak/Ibu/Saudara(i)</div>
+            <div class="recipient-apology">*Mohon maaf bila ada kesalahan dalam penulisan nama, gelar &amp; alamat</div>
+          </div>
+
+          <!-- Tombol Buka Undangan -->
+          <button id="btnOpenInvitation" class="btn-open-invitation" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Buka Undangan</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN INVITATION CONTENT -->
+    <main id="mainContent" role="main">
+
+      <!-- 3. AYAT ALKITAB SECTION -->
+      <section id="sectionVerse" class="section-verse animate-fade-up" aria-label="Ayat Alkitab">
+        <!-- Ikon Salib Alkitab Lilin -->
+        <div class="verse-emblem-wrap">
+          <picture>
+            <source srcset="assets/img/ikon-salib-alkitab-lilin.webp" type="image/webp">
+            <img src="assets/img/ikon-salib-alkitab-lilin.png" alt="Salib Alkitab Lilin" class="verse-emblem-img" loading="lazy" decoding="async">
+          </picture>
+        </div>
+
+        <div class="verse-card">
+          <div class="verse-quote-mark" aria-hidden="true">&ldquo;</div>
+          <blockquote class="verse-text" id="verseText">
+            Adapun rumah ini, kemegahannya yang kemudian akan melebihi kemegahannya yang semula, firman TUHAN semesta alam, dan di tempat ini Aku akan memberi damai sejahtera, demikianlah firman TUHAN semesta alam.
+          </blockquote>
+          <cite class="verse-reference" id="verseRef">Hagai 2:10 (TB)</cite>
+        </div>
+
+        <!-- Foto Fisik Gedung Gereja GKST Karmel Winowanga -->
+        <figure class="church-photo-card animate-fade-up">
+          <picture>
+            <source srcset="assets/img/gereja.webp" type="image/webp">
+            <img src="assets/img/gereja.jpg" alt="Gedung Gereja GKST Jemaat Karmel Winowanga" class="church-photo-img" loading="lazy" decoding="async">
+          </picture>
+          <figcaption class="church-photo-caption">
+            <div class="church-photo-title">Gedung Gereja GKST Jemaat Karmel Winowanga</div>
+            <div class="church-photo-subtitle">Klasis Napu, Lore Timur, Kabupaten Poso</div>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- 4. SURAT UNDANGAN RESMI SECTION (Paper Style) -->
+      <section id="sectionLetter" class="section-letter animate-fade-up" aria-label="Surat Undangan Resmi">
+        <article class="letter-paper">
+          <!-- Kop Surat Resmi GKST -->
+          <div class="letter-header">
+            <picture>
+              <source srcset="assets/img/logo-gkst.webp" type="image/webp">
+              <img src="assets/img/logo-gkst.png" alt="Logo GKST" class="letter-logo" width="58" height="58" loading="lazy" decoding="async">
+            </picture>
+            <div class="letter-header-text">
+              <div class="letter-church-title">GEREJA KRISTEN SULAWESI TENGAH</div>
+              <div class="letter-church-sub">ANGGOTA PGI</div>
+              <div class="letter-church-jemaat">JEMAAT KARMEL WINOWANGA</div>
+            </div>
+          </div>
+
+          <div class="letter-salutation" id="letterGreeting">Syalom!</div>
+
+          <p class="letter-paragraph" id="letterOpening">
+            Mensyukuri Kasih dan anugerah Tuhan Yesus Kristus sebagai Kepala Gereja yang telah menyertai proses pembangunan Gedung GKST Jemaat Karmel Winowanga, maka kami akan melaksanakan Pentahbisan dan peresmian Gedung Gereja tersebut, yang akan dilaksanakan pada:
+          </p>
+
+          <!-- Tabel Informasi Waktu & Tempat -->
+          <div class="event-info-table-card">
+            <div class="event-info-row">
+              <div class="info-label">Hari / Tanggal</div>
+              <div class="info-separator">:</div>
+              <div class="info-val"><strong id="letterDateVal">Kamis, 29 Oktober 2026</strong></div>
+            </div>
+            <div class="event-info-row">
+              <div class="info-label">Pukul</div>
+              <div class="info-separator">:</div>
+              <div class="info-val"><strong id="letterTimeVal">10.00 WITA</strong></div>
+            </div>
+            <div class="event-info-row">
+              <div class="info-label">Tempat</div>
+              <div class="info-separator">:</div>
+              <div class="info-val"><strong id="letterPlaceVal">Gedung Gereja Kristen Sulawesi Tengah Jemaat Karmel Winowanga</strong></div>
+            </div>
+          </div>
+
+          <p class="letter-paragraph" id="letterClosing">
+            Sehubungan dengan hal itu, kami mengundang Bapak/Ibu/Saudara(i) sekiranya berkenan hadir dalam acara dimaksud. Demikian undangan ini kami sampaikan atas kehadiran Bapak/Ibu/Saudara(i) diucapkan terima kasih, Tuhan Yesus Memberkati.
+          </p>
+
+          <!-- Tombol Lihat Lembar Undangan Asli -->
+          <button id="btnOpenOriginalModal" class="btn-view-original" type="button">
+            <span>📜 Lihat Desain Undangan Cetak Asli</span>
+          </button>
+        </article>
+      </section>
+
+      <!-- 5. COUNTDOWN & SAVE TO CALENDAR SECTION -->
+      <section id="sectionCountdown" class="section-countdown animate-fade-up" aria-label="Hitung Mundur Acara">
+        <div class="section-badge">MENUJU HARI PENTAHBISAN</div>
+        <h2 class="section-title">Hitung Mundur Acara</h2>
+        <div class="section-divider-ornament" aria-hidden="true"></div>
+
+        <!-- Grid Angka Countdown -->
+        <div class="countdown-grid" id="countdownGrid" role="timer" aria-live="polite">
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdDays">00</span>
+            <span class="countdown-label">Hari</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdHours">00</span>
+            <span class="countdown-label">Jam</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdMinutes">00</span>
+            <span class="countdown-label">Menit</span>
+          </div>
+          <div class="countdown-box">
+            <span class="countdown-number" id="cdSeconds">00</span>
+            <span class="countdown-label">Detik</span>
+          </div>
+        </div>
+
+        <!-- Aksi Simpan ke Kalender -->
+        <div class="calendar-action-wrap">
+          <a id="btnGoogleCalendar" class="btn-calendar" href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+            <span>Simpan ke Google Calendar</span>
+          </a>
+          <button id="btnDownloadIcs" class="btn-calendar-secondary" type="button">
+            <span>📅 Unduh Jadwal (.ics / Apple / Outlook)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 6. TANDA TANGAN SECTION -->
+      <section id="sectionSignatories" class="section-signatories animate-fade-up" aria-label="Tanda Tangan dan Stempel">
+        <div class="signatories-letter-date" id="letterSignDate">Winowanga, 01 Oktober 2026</div>
+
+        <div class="signatories-grid" id="signatoriesContainer">
+          <!-- Diisi secara dinamis oleh main.js dari config.js -->
+        </div>
+      </section>
+
+      <!-- 7. SUSUNAN ACARA (Rundown) SECTION -->
+      <section id="sectionRundown" class="section-rundown animate-fade-up" aria-label="Susunan Acara">
+        <div class="section-badge">RANGKAIAN KEGIATAN</div>
+        <span class="section-script-title">Susunan Acara</span>
+        <div class="section-divider-ornament" aria-hidden="true"></div>
+
+        <div class="rundown-timeline" id="rundownTimeline">
+          <!-- Diisi secara dinamis oleh main.js dari config.js -->
+        </div>
+      </section>
+
+      <!-- 8. LOKASI SECTION -->
+      <section id="sectionLocation" class="section-location animate-fade-up" aria-label="Lokasi Acara">
+        <div class="section-badge">PETUNJUK LOKASI</div>
+        <h2 class="section-title">Lokasi Acara</h2>
+        <div class="section-divider-ornament" aria-hidden="true"></div>
+
+        <div class="location-address-box">
+          <div class="location-icon-pin" aria-hidden="true">📍</div>
+          <div>
+            <div class="location-name" id="locName">Gedung Gereja GKST Jemaat Karmel Winowanga</div>
+            <div class="location-address" id="locAddress">Desa Winowanga, Kecamatan Lore Timur, Kabupaten Poso, Sulawesi Tengah (Klasis Napu)</div>
+          </div>
+        </div>
+
+        <div class="maps-embed-wrap">
+          <iframe id="mapsIframe" src="" title="Peta Lokasi GKST Karmel Winowanga" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div>
+          <a id="btnMapsLink" class="btn-open-maps" href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Buka di Google Maps</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- 9. KONFIRMASI KEHADIRAN (RSVP & Buku Tamu) -->
+      <section id="sectionRsvp" class="section-rsvp animate-fade-up" aria-label="Konfirmasi Kehadiran">
+        <div class="section-card">
+          <div class="section-badge">RSVP &amp; BUKU TAMU</div>
+          <h2 class="section-title">Konfirmasi Kehadiran</h2>
+          <div class="section-divider-ornament" aria-hidden="true"></div>
+          <p style="font-size: 0.88rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+            Mohon konfirmasikan kehadiran Bapak/Ibu/Saudara(i) untuk membantu panitia dalam mempersiapkan tempat &amp; konsumsi.
+          </p>
+
+          <form id="rsvpForm" class="rsvp-form">
+            <div class="form-group">
+              <label for="rsvpName" class="form-label">Nama Lengkap</label>
+              <input type="text" id="rsvpName" name="name" class="form-input" placeholder="Contoh: Bpk. Stefanus &amp; Keluarga" required maxlength="80">
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Konfirmasi Kehadiran</label>
+              <div class="rsvp-attendance-options">
+                <label class="attendance-radio-card">
+                  <input type="radio" name="attendance" value="Hadir" checked>
+                  <span>✅ Ya, Hadir</span>
+                </label>
+                <label class="attendance-radio-card">
+                  <input type="radio" name="attendance" value="Tidak Hadir">
+                  <span>❌ Tidak Hadir</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpGuests" class="form-label">Jumlah Orang</label>
+              <select id="rsvpGuests" name="guests" class="form-select">
+                <option value="1">1 Orang</option>
+                <option value="2" selected>2 Orang</option>
+                <option value="3">3 Orang</option>
+                <option value="4">4 Orang</option>
+                <option value="5">5+ Orang</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="rsvpMessage" class="form-label">Ucapan &amp; Doa Syukur</label>
+              <textarea id="rsvpMessage" name="message" class="form-textarea" placeholder="Tuliskan ucapan selamat, doa syukur, atau pesan untuk jemaat..." maxlength="300" required></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitRsvp" class="btn-submit-rsvp">
+              <span>Kirim Konfirmasi &amp; Doa</span>
+            </button>
+          </form>
+
+          <!-- Feed Ucapan Buku Tamu -->
+          <div class="greetings-feed-wrap">
+            <div class="greetings-feed-title">
+              <span>Doa &amp; Ucapan Syukur</span>
+              <span id="greetingsCount" class="greetings-count-badge">2 Ucapan</span>
+            </div>
+            <div class="greetings-list" id="greetingsList">
+              <!-- Diisi secara dinamis oleh main.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 10. PENUTUP SECTION -->
+      <section id="sectionClosing" class="section-closing animate-fade-up" aria-label="Penutup Undangan">
+        <div class="closing-flower-ornament" aria-hidden="true"></div>
+
+        <div style="width: 70px; height: 70px; margin: 0 auto 1rem;">
+          <picture>
+            <source srcset="assets/img/logo-gkst.webp" type="image/webp">
+            <img src="assets/img/logo-gkst.png" alt="Logo GKST" style="width: 100%; height: 100%; object-fit: contain;" loading="lazy" decoding="async">
+          </picture>
+        </div>
+
+        <h2 class="closing-blessing">Tuhan Yesus Memberkati</h2>
+        <p style="font-size: 0.9rem; color: var(--text-muted); max-width: 320px; margin: 0 auto 1.75rem;">
+          Merupakan suatu kehormatan dan sukacita yang besar bagi kami atas kehadiran serta doa restu Bapak/Ibu/Saudara(i).
+        </p>
+
+        <div class="closing-actions">
+          <a id="btnShareWa" class="btn-share-wa" href="#" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2m.01 1.67c2.2 0 4.26.86 5.82 2.41a8.212 8.212 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24m4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.02-1.25-.75-.67-1.26-1.5-1.4-1.76-.15-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.85-.2-.49-.4-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.77 2.7 4.29 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.59.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.32z"/></svg>
+            <span>Bagikan via WhatsApp</span>
+          </a>
+
+          <button id="btnScrollTop" class="btn-scroll-top" type="button">
+            <span>⬆️ Kembali ke Atas</span>
+          </button>
+        </div>
+
+        <footer class="site-footer">
+          <div>&copy; 2026 GKST Jemaat Karmel Winowanga. Klasis Napu, Anggota PGI.</div>
+          <div style="margin-top: 4px; font-size: 0.72rem; color: #8C99AF;">Desain &amp; Pengembangan Undangan Digital Gereja</div>
+        </footer>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- MODAL LIHAT SURAT CETAK ASLI -->
+  <div id="modalOriginalLetter" class="modal-original-letter" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content-card">
+      <div class="modal-header">
+        <h3 id="modalTitle" class="modal-title">Desain Undangan Cetak Asli</h3>
+        <button id="btnCloseModal" class="modal-btn-close" type="button" aria-label="Tutup modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <picture>
+          <source srcset="assets/img/surat-undangan-asli.webp" type="image/webp">
+          <img src="assets/img/surat-undangan-asli.jpg" alt="Lembar Undangan Cetak Asli GKST Karmel Winowanga" class="modal-letter-img" loading="lazy">
+        </picture>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
